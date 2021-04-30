@@ -24,7 +24,6 @@ jobs:
   allow_failures:
     - os: osx
     - name: "qdrouterd:TSAN"
-    - arch: arm64
     - arch: s390x
   include:
   - name: "apache-rat:check"
@@ -112,7 +111,7 @@ jobs:
       - PROTON_VERSION=main BUILD_TYPE=RelWithDebInfo
       - DISPATCH_CMAKE_ARGS='-DRUNTIME_CHECK=asan -DCMAKE_C_FLAGS=-DQD_MEMORY_DEBUG -DQD_ENABLE_ASSERTIONS=ON -DDISPATCH_TEST_TIMEOUT=500'
   - name: "qdrouterd:RelWithDebInfo+MemoryDebug (clang on focal)"
-    arch: arm64
+    arch: s390x
     os: linux
     dist: focal
     compiler: clang
